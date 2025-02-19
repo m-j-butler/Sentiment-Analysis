@@ -17,6 +17,10 @@ def sent_analyzer():
     # Retrieve the text to analyze from the request arguments
     text_to_analyze = request.args.get('textToAnalyze')
 
+    # Handling empty user input
+    if not text_to_analyze:
+        return "No input detected."
+
     # Pass the text to the sentiment_analyzer function and store the response
     response = sentiment_analyzer(text_to_analyze)
 
